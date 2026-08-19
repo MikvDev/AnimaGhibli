@@ -4,12 +4,20 @@ import { useState, useEffect } from "react";
 import { SafeAreaView, SafeAreaProvider } from "react-native-safe-area-context";
 import api from "../src/services/api";
 import { CardFilm } from "../components/ui/CardFilm"
+import AsyncStorage from "@react-native-async-storage/async-storage";
+
+
+
+
 const Home = () => {
+ 
   const [films, setFilms] = useState<any>([]);
   useEffect(() => {
     search();
   }, []);
-  
+    
+
+
   async function search() {
     try {
       const result = await api.get("https://ghibliapi.vercel.app/films"); // Precisamos usar async e await, pois os dados não são intantaneos
@@ -20,8 +28,9 @@ const Home = () => {
       console.log(error);
     }
   }
+ 
   return (
-    <SafeAreaProvider>
+    
       <SafeAreaView
         style={styles.container}
       >
@@ -29,11 +38,11 @@ const Home = () => {
        <FlatList
        data={films}
        keyExtractor={(item)=> item.id}
-       renderItem={({item}) =>(<CardFilm   title={item.title} image={item.image} description={item.description} director={item.director} rt_score={item.rt_score}     />)}
+       renderItem={({item}) =>(<CardFilm   title={item.title} image={item.image} description={item.description} director={item.director} rt_score={item.rt_score}  id={item.id}   />)}
        
        />
       </SafeAreaView>
-    </SafeAreaProvider>
+    
   );
 };
 

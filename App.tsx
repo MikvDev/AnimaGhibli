@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { ActivityIndicator, StyleSheet, Text, View } from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { NavigationContainer } from '@react-navigation/native';
 import House from 'lucide-react-native/icons/house';
@@ -8,11 +8,21 @@ import CircleUser from 'lucide-react-native/icons/circle-user';
 import Home from './pages/Home';
 import User from './pages/User';
 import FavoritePage from './pages/FavoritePage';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
+import FilmPage from './pages/FilmPage';
+import { useFonts } from 'expo-font';
 
 export default function App() {
   const Tab = createBottomTabNavigator()
+  const [fontsLoaded] = useFonts({
+    'GhibliFont': require('./assets/fonts/Ghibli.ttf'),
+  });
+
+  // Aguarda a fonte carregar antes de mostrar o app
+  
+  
   return (
-    
+      <SafeAreaProvider>
       <NavigationContainer>
       <Tab.Navigator screenOptions={{headerShown:false}}>
         <Tab.Screen 
@@ -44,12 +54,23 @@ export default function App() {
             ),
           }}
         />
+        <Tab.Screen 
+        name='FilmPage'
+        component={FilmPage}
+         options={{
+            tabBarIcon: ({ color, size }) => (
+              <CircleUser  size={size} color={color} />
+            ),
+          }}
+        />
 
 
 
       </Tab.Navigator>
         
       </NavigationContainer>
+        
+      </SafeAreaProvider>
     
   );
 }
