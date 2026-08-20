@@ -1,7 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
 import { ActivityIndicator, StyleSheet, Text, View } from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { NavigationContainer } from '@react-navigation/native';
+import { DefaultTheme, NavigationContainer } from '@react-navigation/native';
 import House from 'lucide-react-native/icons/house';
 import BookMarked from 'lucide-react-native/icons/book-marked';
 import CircleUser from 'lucide-react-native/icons/circle-user';
@@ -12,14 +12,26 @@ import { SafeAreaProvider } from 'react-native-safe-area-context';
 import FilmPage from './pages/FilmPage';
 import { useFonts } from 'expo-font';
 
+
+const myTheme ={
+  ...DefaultTheme,
+  colors:{
+    ...DefaultTheme.colors,
+    
+  }
+}
+
 export default function App() {
   const Tab = createBottomTabNavigator()
-  
+  const [fontsLoaded] = useFonts({
+    'Ghibli-Bold': require('./assets/fonts/Eyad Al-Samman - Ghibli-Bold.otf'),
+    'Ghibli-Regular': require('./assets/fonts/Eyad Al-Samman - Ghibli.otf'),
+  });
   
   
   return (
       <SafeAreaProvider>
-      <NavigationContainer style={{}}>
+      <NavigationContainer theme={myTheme}>
       <Tab.Navigator screenOptions={{headerShown:false}} >
         <Tab.Screen 
         name='Home'
@@ -28,8 +40,9 @@ export default function App() {
             tabBarIcon: ({ color, size }) => (
               <House  size={size} color={color} />
             ),
-            tabBarStyle: {backgroundColor:"#000"},
-            tabBarActiveTintColor:"#a5a865"
+            tabBarStyle: {backgroundColor:"#fff", borderTopColor:"#fff"},
+            tabBarActiveTintColor:"#349eb6",
+            
           }}
         />
         <Tab.Screen 
@@ -40,6 +53,8 @@ export default function App() {
             tabBarIcon: ({ color, size }) => (
               <BookMarked  size={size} color={color} />
             ),
+             tabBarStyle: {backgroundColor:"#fff", borderTopColor:"#fff"},
+            tabBarActiveTintColor:"#349eb6",
             
           }}
         />
@@ -50,6 +65,8 @@ export default function App() {
             tabBarIcon: ({ color, size }) => (
               <CircleUser  size={size} color={color} />
             ),
+             tabBarStyle: {backgroundColor:"#fff", borderTopColor:"#fff"},
+            tabBarActiveTintColor:"#349eb6",
           }}
         />
         <Tab.Screen 
@@ -59,6 +76,7 @@ export default function App() {
             tabBarIcon: ({ color, size }) => (
               <CircleUser  size={size} color={color} />
             ),
+            
           }}
         />
 

@@ -38,11 +38,12 @@ const FavoritePage = () => {
   return (
     <SafeAreaView>
 
-      <Text>FavoritePage</Text>
+      <Text style={{fontFamily:"Ghibli-Bold", fontSize:30, textAlign:"center"}}>FavoritePage</Text>
        <FlatList
              data={favorities}
              keyExtractor={(item)=> item.id}
-             renderItem={({item}) =>(<CardFilm   title={item.title} image={item.image} description={item.description} director={item.director} rt_score={item.rt_score}  id={item.id}  onFavoriteToggle={() => handleRemoveFromState(item.id)} />)}
+             renderItem={({item}) =>(<CardFilm   title={item.title} image={item.image} description={item.description} director={item.director} rt_score={item.rt_score}  id={item.id}   
+              onFavoriteToggle={() => handleRemoveFromState(item.id)} />)}
              
              />
     </SafeAreaView>

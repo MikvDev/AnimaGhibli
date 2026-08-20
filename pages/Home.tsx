@@ -56,5 +56,6 @@ const styles = StyleSheet.create({
   title: {
     textAlign:"center",
     fontSize:24,
+    fontFamily:"Ghibli-Bold"
   }
 });
