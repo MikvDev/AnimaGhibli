@@ -14,17 +14,13 @@ import { useFonts } from 'expo-font';
 
 export default function App() {
   const Tab = createBottomTabNavigator()
-  const [fontsLoaded] = useFonts({
-    'GhibliFont': require('./assets/fonts/Ghibli.ttf'),
-  });
-
-  // Aguarda a fonte carregar antes de mostrar o app
+  
   
   
   return (
       <SafeAreaProvider>
-      <NavigationContainer>
-      <Tab.Navigator screenOptions={{headerShown:false}}>
+      <NavigationContainer style={{}}>
+      <Tab.Navigator screenOptions={{headerShown:false}} >
         <Tab.Screen 
         name='Home'
         component={Home}
@@ -32,6 +28,8 @@ export default function App() {
             tabBarIcon: ({ color, size }) => (
               <House  size={size} color={color} />
             ),
+            tabBarStyle: {backgroundColor:"#000"},
+            tabBarActiveTintColor:"#a5a865"
           }}
         />
         <Tab.Screen 
@@ -78,7 +76,7 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#000',
     alignItems: 'center',
     justifyContent: 'center',
   },

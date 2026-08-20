@@ -1,7 +1,8 @@
 import { StyleSheet, View, Image, Text, Alert, ImageBackground, Pressable } from "react-native"
 import { useNavigation } from "@react-navigation/native"
 import AsyncStorage from "@react-native-async-storage/async-storage"
-
+import Play from "lucide-react-native/icons/play"
+import Heart from "lucide-react-native/icons/heart"
 type cardFilmProp = {
   id: string
   image: string
@@ -41,12 +42,12 @@ export function CardFilm({ image, title, director, rt_score, id, description, on
   return (
     <View style={styles.container}>
       <ImageBackground source={{ uri: image }} style={{ width: "100%", height: "100%", justifyContent: "flex-end" }}>
-        <View style={{ backgroundColor: "rgba(0, 0, 0, 0.6)",}}>
+        <View >
 
         <View style={styles.info}>
           <View>
-            <Text style={styles.title}>{title}</Text>
-            <Text style={styles.span}>{director}</Text>
+            
+            
             <Text style={styles.span}>{rt_score}</Text>
           </View>
         </View>
@@ -54,10 +55,10 @@ export function CardFilm({ image, title, director, rt_score, id, description, on
         <View>
           <View style={styles.ctnBtns}>
             <Pressable onPress={() => navigation.navigate('FilmPage', { filmId: id })} style={styles.btn}>
-              <Text style={styles.textBtn}>Ver detalhes</Text>
+             <Play/> <Text style={styles.textBtn}>  Ver detalhes</Text>
             </Pressable>
             <Pressable onPress={handleToggleFavorite} style={styles.btn}>
-              <Text style={styles.textBtn}>Favoritar</Text>
+              <Heart/> <Text style={styles.textBtn}>   Favoritar</Text>
             </Pressable>
           </View>
         </View>
@@ -92,15 +93,19 @@ const styles = StyleSheet.create({
   },
   ctnBtns: {
     gap: 7,
-    padding:20
+    padding:20,
+    flexDirection:"row"
   },
   btn: {
-    width: "100%",
+    width: "50%",
     justifyContent: "center",
-    alignItems: "center",
-    borderRadius: 24,
+    alignItems:"center",
+    alignContent:"center",
+   flexDirection:"row",
+    
+    borderRadius: 8 ,
     height: 48,
-    backgroundColor: "#72bf91",
+    backgroundColor: "#fff",
   },
   info: {
     flexDirection: "row",
@@ -114,7 +119,8 @@ const styles = StyleSheet.create({
   },
   textBtn: {
     textAlign: "center",
-    color: "#fff",
-    fontSize:14
+    color: "#000",
+    fontSize:14,
+    fontWeight:500
   },
 })
