@@ -42,7 +42,7 @@ export default function App() {
             
         },
         tabBarLabelStyle:{fontFamily:"Ghibli-Regular"},
-        tabBarActiveTintColor:"#000",
+        tabBarActiveTintColor:"#349eb6",
       }} >
         <Tab.Screen 
         name='Home'

@@ -6,6 +6,7 @@ import Heart from "lucide-react-native/icons/heart"
 import Star from "lucide-react-native/icons/star"
 import Sparkles from "lucide-react-native/icons/sparkles"
 import Eye from "lucide-react-native/icons/eye"
+
 import { BlurView } from "expo-blur"
 type cardFilmProp = {
   id: string
@@ -51,7 +52,7 @@ export function CardFilm({ image, title, director, rt_score, id, description, on
        
 
         <BlurView    intensity={80} tint="dark" style={styles.info}>
-          <View style={{position:"absolute", top:10, left:25, justifyContent:"center", alignItems:"center"}}> 
+          <View style={{position:"absolute", top:5, left:25, justifyContent:"center", alignItems:"center", flexDirection:"row", gap:3}}> 
             <Star color={"#ebd79c"} fill={"#ebd79c"}/>
             <Text style={styles.span}>{rt_score}</Text>
             
@@ -84,7 +85,7 @@ const styles = StyleSheet.create({
   container: {
     justifyContent: "flex-end",
     width: "100%",
-    height: 500,
+    height: 430,
     padding: 20,
     
     marginTop: 20,

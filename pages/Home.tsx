@@ -36,7 +36,7 @@ const Home = () => {
       >
         <View style={{marginBottom:20, padding:20}}>
 
-        <Image source={Logo} style={{height:120, width:"100%", resizeMode:"contain"}}/>
+        <Image source={Logo} style={{height:90, width:"100%", resizeMode:"contain"}}/>
         </View>
            <View style={styles.separator}></View>
        <FlatList

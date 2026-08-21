@@ -47,11 +47,11 @@ const FilmPage = ({route}: any) => {
        <Text style={styles.title}>{film?.title}</Text>
        <View style={styles.separator}></View>
        <Text style={{ textAlign:"center" ,color:"#000", fontFamily:"Ghibli-Bold"}}>{film?.director}</Text>
+       
         <Image source={{uri: film?.image}} style={styles.image} />
             
           
        <Text style={styles.textBody}>{film?.description}</Text>
-        <View style={styles.separator}></View>
          
         </View>
         </ScrollView>
@@ -91,7 +91,10 @@ const styles = StyleSheet.create({
     fontFamily:"Ghibli-Regular",
     fontSize:16,
     marginTop:20,
-    textAlign:"justify"
+    textAlign:"justify",
+    backgroundColor:"#fff",
+    padding:20,
+    borderRadius:16
   }, span: {
     fontSize: 14,
     color: "#fff",
@@ -99,7 +102,7 @@ const styles = StyleSheet.create({
   },separator:{
     height: 1,
   backgroundColor: '#262626',
-  marginVertical:12,
+  marginVertical:10,
   width: '100%',
   }
 })
