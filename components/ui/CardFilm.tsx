@@ -4,6 +4,8 @@ import AsyncStorage from "@react-native-async-storage/async-storage"
 import Play from "lucide-react-native/icons/play"
 import Heart from "lucide-react-native/icons/heart"
 import Star from "lucide-react-native/icons/star"
+import Sparkles from "lucide-react-native/icons/sparkles"
+import Eye from "lucide-react-native/icons/eye"
 import { BlurView } from "expo-blur"
 type cardFilmProp = {
   id: string
@@ -57,10 +59,11 @@ export function CardFilm({ image, title, director, rt_score, id, description, on
 
         
           <View   style={styles.ctnBtns}>
-            <Text style={{fontFamily:"Ghibli-Bold", textAlign:"center", color:"#fff"}}>{director}</Text>
+            <Text style={{fontFamily:"Ghibli-Bold", textAlign:"center", color:"#fff"}}>{title}</Text>
             <View style={styles.separator}></View>
             <Pressable onPress={() => navigation.navigate('FilmPage', { filmId: id })} style={styles.btn}>
-             <Text style={styles.textBtn}>  Ver detalhes</Text>
+          <Eye color={"#FFFFFFCC"} />
+             <Text style={styles.textBtn}>  See details</Text>
             </Pressable>
           </View>
         
@@ -103,7 +106,7 @@ const styles = StyleSheet.create({
     fontFamily:"Ghibli-Regular"
   },
   ctnBtns: {
-    gap: 7,
+    gap: 5,
     padding:20,
     flexDirection:"column",
   },
@@ -112,9 +115,9 @@ const styles = StyleSheet.create({
     top:20,
     right:20,
     backgroundColor:"#fff",
-    height:50,
+    height:30,
     padding:24,
-    width:50,
+    width:30,
     justifyContent:"center",
     alignItems:"center",
     borderRadius:100
@@ -127,14 +130,16 @@ const styles = StyleSheet.create({
    flexDirection:"row",
     
     borderRadius: 16,
-    height:30 ,
+    height:35 ,
     backgroundColor: "#349eb6",
   },
   info: {
    overflow:"hidden",
     padding: 10,
     borderBottomRightRadius:20,
-    borderBottomLeftRadius:20
+    borderBottomLeftRadius:20,
+    borderTopRightRadius:16,
+    borderTopLeftRadius:16,
     
    
   },

@@ -1,11 +1,11 @@
-import { Button, StyleSheet, Text, View, FlatList } from "react-native";
+import { Button, StyleSheet, Text, View, FlatList, Image } from "react-native";
 import React from "react";
 import { useState, useEffect } from "react";
 import { SafeAreaView, SafeAreaProvider } from "react-native-safe-area-context";
 import api from "../src/services/api";
 import { CardFilm } from "../components/ui/CardFilm"
 import AsyncStorage from "@react-native-async-storage/async-storage";
-
+import Logo from "../assets/studio-ghibli-seeklogo.png"
 
 
 
@@ -34,7 +34,11 @@ const Home = () => {
       <SafeAreaView
         style={styles.container}
       >
-        <Text style={styles.title}>Studio Ghibli</Text>
+        <View style={{marginBottom:20, padding:20}}>
+
+        <Image source={Logo} style={{height:120, width:"100%", resizeMode:"contain"}}/>
+        </View>
+           <View style={styles.separator}></View>
        <FlatList
        data={films}
        keyExtractor={(item)=> item.id}
@@ -51,11 +55,16 @@ export default Home;
 const styles = StyleSheet.create({
   container: {
     flex:1,
-    
+    padding:20
   },
   title: {
     textAlign:"center",
     fontSize:24,
     fontFamily:"Ghibli-Bold"
+  },separator:{
+    height: 1,
+  backgroundColor: '#000',
+  marginVertical:12,
+  width: '100%',
   }
 });

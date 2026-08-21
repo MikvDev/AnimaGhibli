@@ -4,7 +4,9 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { DefaultTheme, NavigationContainer } from '@react-navigation/native';
 import House from 'lucide-react-native/icons/house';
 import BookMarked from 'lucide-react-native/icons/book-marked';
+import Bookmark from 'lucide-react-native/icons/bookmark';
 import CircleUser from 'lucide-react-native/icons/circle-user';
+import Sprout from 'lucide-react-native/icons/sprout';
 import Home from './pages/Home';
 import User from './pages/User';
 import FavoritePage from './pages/FavoritePage';
@@ -32,16 +34,25 @@ export default function App() {
   return (
       <SafeAreaProvider>
       <NavigationContainer theme={myTheme}>
-      <Tab.Navigator screenOptions={{headerShown:false}} >
+      <Tab.Navigator screenOptions={{headerShown:false, 
+        tabBarStyle: {
+           backgroundColor:"#fff", borderTopColor:"#fff",
+           
+           
+            
+        },
+        tabBarLabelStyle:{fontFamily:"Ghibli-Regular"},
+        tabBarActiveTintColor:"#000",
+      }} >
         <Tab.Screen 
         name='Home'
         component={Home}
          options={{
             tabBarIcon: ({ color, size }) => (
-              <House  size={size} color={color} />
+              <Sprout size={size} color={color} />
             ),
-            tabBarStyle: {backgroundColor:"#fff", borderTopColor:"#fff"},
-            tabBarActiveTintColor:"#349eb6",
+            
+            
             
           }}
         />
@@ -51,10 +62,8 @@ export default function App() {
         component={FavoritePage}
          options={{
             tabBarIcon: ({ color, size }) => (
-              <BookMarked  size={size} color={color} />
+              <Bookmark  size={size} color={color} />
             ),
-             tabBarStyle: {backgroundColor:"#fff", borderTopColor:"#fff"},
-            tabBarActiveTintColor:"#349eb6",
             
           }}
         />
@@ -65,8 +74,7 @@ export default function App() {
             tabBarIcon: ({ color, size }) => (
               <CircleUser  size={size} color={color} />
             ),
-             tabBarStyle: {backgroundColor:"#fff", borderTopColor:"#fff"},
-            tabBarActiveTintColor:"#349eb6",
+             
           }}
         />
         <Tab.Screen 
@@ -75,7 +83,8 @@ export default function App() {
          options={{
             tabBarIcon: ({ color, size }) => (
               <CircleUser  size={size} color={color} />
-            ),
+            ),tabBarButton: () => null,
+              tabBarItemStyle: { display: 'none' },
             
           }}
         />

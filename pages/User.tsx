@@ -1,14 +1,15 @@
-import { ScrollView, StyleSheet, Text, View } from "react-native";
+import { ScrollView, StyleSheet, Text, View, Image } from "react-native";
 import React from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
-
+import Character from "../assets/assetCharacter.png"
 const User = () => {
   return (
         <SafeAreaView style={styles.container}>
     <ScrollView>
-      <View style={{gap:20}}>
+      <View style={{gap:20, position:"relative"}}>
 
     <View style={styles.userPhoto}/>
+     <View style={styles.separator}></View>
     <View style={{gap:10}}>
 <Text style={{fontFamily:"Ghibli-Bold", textAlign:"center"}}>Name</Text>
     <Text style={{fontFamily:"Ghibli-Regular", textAlign:"center"}}>Miguel Vargas </Text>
@@ -20,8 +21,9 @@ const User = () => {
     </View>
 
 
+  <Image source={Character} style={{height:70, width:70, position:"absolute", bottom:150, left:10}}/>
+
       </View>
-    
       </ScrollView>
     </SafeAreaView>
   );
@@ -39,5 +41,10 @@ const styles = StyleSheet.create({
   container:{
     justifyContent:"center",
     alignItems:"center"
+  },separator:{
+    height: 1,
+  backgroundColor: '#000',
+  marginVertical:12,
+  width: '100%',
   }
 });

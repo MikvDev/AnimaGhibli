@@ -37,8 +37,9 @@ const FavoritePage = () => {
   }
   return (
     <SafeAreaView>
+ <View style={{padding:20}}>
 
-      <Text style={{fontFamily:"Ghibli-Bold", fontSize:30, textAlign:"center"}}>FavoritePage</Text>
+      <Text style={{fontFamily:"Ghibli-Bold", fontSize:30, textAlign:"center"}}>Favorite Page</Text>
        <FlatList
              data={favorities}
              keyExtractor={(item)=> item.id}
@@ -46,6 +47,7 @@ const FavoritePage = () => {
               onFavoriteToggle={() => handleRemoveFromState(item.id)} />)}
              
              />
+ </View>
     </SafeAreaView>
     
   )

@@ -48,16 +48,12 @@ const FilmPage = ({route}: any) => {
        <View style={styles.separator}></View>
        <Text style={{ textAlign:"center" ,color:"#000", fontFamily:"Ghibli-Bold"}}>{film?.director}</Text>
         <Image source={{uri: film?.image}} style={styles.image} />
-        
             
           
        <Text style={styles.textBody}>{film?.description}</Text>
+        <View style={styles.separator}></View>
+         
         </View>
-         <View style={{position:"absolute", top:160, left:25, justifyContent:"center", alignItems:"center"}}> 
-            <Star color={"#ebd79c"} fill={"#ebd79c"}/>
-            <Text style={styles.span}>{film?.rt_score}</Text>
-            
-          </View>
         </ScrollView>
 
         
@@ -76,7 +72,7 @@ const styles = StyleSheet.create({
   },
   ctnFilm: {
     padding:20,
-    position:"relative",
+    
     
 
   },
